@@ -1,4 +1,5 @@
 <?php
+//mengambil resource barang
  include_once 'classles/Barang.php';
  $brg = new Barang();
  if ($_SERVER['REQUEST_METHOD']=='POST') {
@@ -35,8 +36,15 @@
                     </div>
                     <div class="card-body">
                         <form method="POST" enctype="multipart/form-data" action="">
+                            <input type="hidden" name="id_user" value="1">
                             <label for="Nama">Nama Barang</label>
                             <input type="text" name="nama_barang" placeholder="Masukan Nama Barang...." class="form-control">
+                            <label for="kategori">Kategori Barang</label>
+                            <select name="kategori" class="form-control">
+                                <option value="1">ATK</option>
+                                <option value="2">Kebersihan</option>
+                                <option value="3">elektronik</option>
+                            </select>
                             <label for="jumlah">Jumlah Barang</label>
                             <input type="number" name="jumlah_barang" placeholder="0 . . 9" class="form-control">
                             <label for="kondisi">Kondisi Barang</label>

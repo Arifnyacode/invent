@@ -10,9 +10,11 @@ class Barang{
 
     public function addBarang($data, $file){
         $nama = $data['nama_barang'];
+        $kategori = $data['kategori'];
         $jml = $data['jumlah_barang'];
         $kondisi = $data['kondisi_barang'];
         $deskripsi = $data['deskripsi_barang'];
+        $iduser = $data['id_user'];
 
         $permited = array('jpg','jpeg','png','gif');
         $file_name = $file['foto_barang']['name'];
@@ -35,7 +37,7 @@ class Barang{
             return $msg;
         }else {
             move_uploaded_file($file_temp,$upload_img);
-            $query = "INSERT INTO tbl_barang values ('$nama','$jml','$kondisi','$upload_img','$deskripsi')";
+            $query = "INSERT INTO tbl_barang values ('$nama','$jml','$kondisi','$upload_img','$deskripsi','$iduser','$kategori')";
 
             $result = $this->db->insert($query);
 
